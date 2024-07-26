@@ -16,71 +16,23 @@ const Home = () => {
   const [ isScrolling, setIsScrolling ] = useState(false)
 
   useEffect(()=>{
-      const observerOptions = { 
-        root : null, 
-        rootMargin : '0px',
-        threshold: 0.5
-      }
+      const handleScroll = ()=>{
+        const pageYOffset = window.pageYOffset;
 
-      // section 번호 찾기 
-      const handleIntersect = ( entries ) => {
-          entries.forEach( (entry)=>{
-            if(entry.isIntersecting ){
-              const index = sectionRefs.current.findIndex(ref => ref.current === entry.target )
-              if( index !== -1 ){
-                setActiveSection(index)
-              }
-            }
-            
-          }) // FOREACH END 
-      }
-
-        const observer = new IntersectionObserver(handleIntersect, observerOptions);
-
-        sectionRefs.current.forEach(ref=>{
-          if( ref.current){
-            observer.observe(ref.current)
+        let newActiveSection = 0; 
+        sectionRefs.current.forEach((ref, index)=>{
+          if(ref.current.offsetTop <= pageYOffset + 100){
+            newActiveSection = index
           }
+          // console.log( newActiveSection )
         })
 
-        const HandleWheel = e=>{
-          e.preventDefault();
-          if( isScrolling ) return; 
+        setActiveSection( newActiveSection )
+      }
 
-          setIsScrolling(true);
-
-          const deltaY = e.deltaY;
-          let nextSection;
-
-          if( deltaY > 0 && activeSection < sections.length - 1){
-            // scroll down 
-            nextSection = activeSection + 1; 
-          }else if( deltaY < 0 && activeSection > 0){
-            // scroll up
-            nextSection = activeSection - 1; 
-          }else{
-            setIsScrolling(false)
-            return;
-          }
-          scrollToSection(nextSection);
-        } /// HANDLE WHEEL END 
-
-        setTimeout( ()=>{
-          setIsScrolling(false)
-        }, 1000)
-
-        window.addEventListener('wheel', HandleWheel, { passive : false })
-
-        return ()=>{
-          sectionRefs.current.forEach(ref=>{
-            if(ref.current){
-              observer.unobserve(ref.current)
-            }
-          })
-           window.removeEventListener('wheel', HandleWheel)
-        }
-
-  }, [activeSection, isScrolling])
+      window.addEventListener('scroll', handleScroll);
+      return ()=> window.removeEventListener('scroll', handleScroll)
+  }, [])
 
 
   const scrollToSection = (index)=>{

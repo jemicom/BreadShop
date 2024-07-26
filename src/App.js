@@ -3,6 +3,7 @@ import Home from "./routes/home/Home";
 import Songs from "./routes/songs/Songs";
 import SongDetail from "./routes/songs/SongDetail";
 import Breads from "./routes/breads/Breads";
+import ChicorBoard from "./routes/chicor_board/ChicorBoard";
 
 function App() {  
   return (
@@ -12,6 +13,7 @@ function App() {
             <li> <a href="/">HOME</a></li>
             <li> <a href="/songs">Songs</a></li>
             <li> <a href="/breads">Breads</a></li>
+            <li> <a href="/chicor_board">chicor_board</a></li>
           </ul>
        </header>
 
@@ -20,6 +22,7 @@ function App() {
           <Route path="/songs"  element={ <Songs /> }/>
           <Route path="/songs/:id"  element={ <SongDetail /> }/>
           <Route path="/breads"  element={ <Breads /> }/>
+          <Route path="/chicor_board"  element={ <ChicorBoard /> }/>
        </Routes>
 
        <footer>footer</footer>
