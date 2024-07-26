@@ -7,6 +7,7 @@ import ChicorBoard from "./routes/chicor_board/ChicorBoard";
 import Skincare from "./routes/skincare/Skincare";
 import Makeup from "./routes/makeup/Makeup";
 import SidebarLayout from "./components/sidebar_layout/SidebarLayout";
+import Navbar from './components/navbar/Navbar'
 
 function App() {  
   return (
@@ -19,6 +20,8 @@ function App() {
             <li> <a href="/skincare">Skincare</a></li>
             <li> <a href="/makeup">makeup</a></li>
           </ul> */}
+          <h1 className="text-center">brand</h1>
+          <Navbar />
        </header>
 
        <Routes>

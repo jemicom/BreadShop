@@ -144,12 +144,12 @@ const Navbar = () => {
                    <div className='p-5'>
                     <div key={menu.name} 
                          ref={ ef => submenuRefs.current[index] = ef }
-                         className='overflow-hidden absolute w-screen left-0 top-0  flex justify-center bg-blue-300
+                         className='overflow-hidden absolute w-screen left-0 top-0  flex justify-center bg-red-300
                                 transfrom translate-all duration-300'
                          style={{ maxHeight : 0}}
                     >
                         <div className='flex'>
-                            <h3 className='w-[300px]'>{menu.name}</h3>
+                            <h3 className={`w-[300px] h-[${maxHeight}px] border border-r-indigo-500`}>{menu.name}</h3>
                             <div className='grid grid-cols-4'>
                                 {
                                     menu.subCategories.map(category=>(
