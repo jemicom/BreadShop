@@ -12,7 +12,7 @@ import Navbar from './components/navbar/Navbar'
 function App() {  
   return (
     <div className="App"> 
-       <header>
+       <header className="fixed top-0 w-full">
           {/* <ul className="flex gap-48">
             <li> <a href="/">HOME</a></li>
             <li> <a href="/songs">Songs</a></li>
@@ -20,7 +20,7 @@ function App() {
             <li> <a href="/skincare">Skincare</a></li>
             <li> <a href="/makeup">makeup</a></li>
           </ul> */}
-          <h1 className="text-center">brand</h1>
+          <h1 className="text-center bg-black text-cyan-50">brand</h1>
           <Navbar />
        </header>
 
