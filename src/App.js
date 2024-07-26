@@ -4,6 +4,9 @@ import Songs from "./routes/songs/Songs";
 import SongDetail from "./routes/songs/SongDetail";
 import Breads from "./routes/breads/Breads";
 import ChicorBoard from "./routes/chicor_board/ChicorBoard";
+import Skincare from "./routes/skincare/Skincare";
+import Makeup from "./routes/makeup/Makeup";
+import SidebarLayout from "./components/sidebar_layout/SidebarLayout";
 
 function App() {  
   return (
@@ -23,6 +26,16 @@ function App() {
           <Route path="/songs/:id"  element={ <SongDetail /> }/>
           <Route path="/breads"  element={ <Breads /> }/>
           <Route path="/chicor_board"  element={ <ChicorBoard /> }/>
+          <Route path="/skincare"  element={
+            <SidebarLayout>
+              <Skincare />
+            </SidebarLayout>
+           }  />
+          <Route path="/makeup"  element={
+              <SidebarLayout>
+                <Makeup />
+              </SidebarLayout>
+           }  />
        </Routes>
 
        <footer>footer</footer>
