@@ -12,12 +12,13 @@ function App() {
   return (
     <div className="App"> 
        <header>
-          <ul className="flex gap-48">
+          {/* <ul className="flex gap-48">
             <li> <a href="/">HOME</a></li>
             <li> <a href="/songs">Songs</a></li>
             <li> <a href="/breads">Breads</a></li>
-            <li> <a href="/chicor_board">chicor_board</a></li>
-          </ul>
+            <li> <a href="/skincare">Skincare</a></li>
+            <li> <a href="/makeup">makeup</a></li>
+          </ul> */}
        </header>
 
        <Routes>
